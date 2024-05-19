@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --purple: #9c1fe9;
+    --lighpurple: #f7e9fe;
+    --darkgrey: #b6b6b6;
+    --lighgrey: #e9e9e9;
+    --blue: #2980b9;
+    --green: #27ae60;
+    --red: #ea6153;
+    --yellow: #FFBF00;
+}
+
+* {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #f8f8f8;
+}
+
+.top-banner {
+    width: 100%;
+    display: flex;
+}
+
+.overview-title {
+    width: 90%;
+}
+
+.profile-button {
+    width: 10%;
+    text-align: right;
+}
+
+.profile-button a {
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.row {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row > * {
+    height: 100%;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+/* First Row */
+/* Liquid income panel */
+.liquid-income-table-div {
+    width: 48%;
+}
+
+.liquid-income-table-div h3 {
+    width: 100%;
+    margin-bottom: 20px;
+    color: var(--blue);
+}
+
+.liquid-income-table {
+    width: 100%;
+    height: fit-content;
+    border-collapse: collapse;
+}
+
+.liquid-income-table td, .liquid-income-table th {
+    padding: 8px;
+}
+
+.liquid-income-table tr:nth-child(odd) {
+    background-color: var(--lighgrey); 
+}
+
+.liquid-income-table th {
+    color: white;
+    background-color: var(--blue);
+}
+
+/* Income sources graphic panel */
+.income-ratio-chart-div {
+    width: 24%;
+}
+
+.income-ratio-chart-div h3 {
+    width: 100%;
+    margin-bottom: 20px;
+    color: var(--green);
+}
+
+.income-ratio-chart {
+    width: 100%;
+}
+
+/* Bugjeting table panel */
+.budgeting-arrow-table-div {
+    width: 24%;
+}
+
+.budgeting-arrow-table-div h3 {
+    width: 100%;
+    margin-bottom: 20px;
+    color: var(--purple);
+}
+
+.budgeting-arrow-table {
+    width: 100%;
+    height: fit-content;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.budgeting-arrow-table td {
+    padding: 8px;
+}
+
+.budgeting-arrow-table tr:nth-child(even) {
+    background-color: var(--lighpurple); 
+}
+
+/* Second row */
+/* Discounts graph panel */
+.discounts-chart-div {
+    width: 30%;
+}
+
+.discounts-chart-div h3 {
+    width: 100%;
+    margin-bottom: 20px;
+    color: var(--yellow);
+}
+
+.discounts-chart {
+    width: 100%;
+}
+
+/* Money left graph panel */
+.money-left-div {
+    width: 20%;
+}
+
+.money-left-div h3 {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.money-left-chart {
+    width: 100%;
+}
+
+/* Expenses table panel */
+.expenses-table-div {
+    width: 45%;
+}
+
+.expenses-table-div h3 {
+    width: 100%;
+    margin-bottom: 20px;
+    color: var(--red);
+}
+
+.expenses-table {
+    width: 100%;
+    height: fit-content;
+    border-collapse: collapse;
+}
+
+.expenses-table td, .expenses-table th {
+    padding: 8px;
+}
+
+.expenses-table tr:nth-child(odd) {
+    background-color: var(--lighgrey); 
+}
+
+.expenses-table th {
+    color: white;
+    background-color: var(--red);
+}

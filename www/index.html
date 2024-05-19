@@ -11,8 +11,16 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
-<body>
-    <h1>Overview</h1>
+<body class="body">
+    <div class="top-banner">
+        <h1 class="overview-title">Overview</h1>
+        <div class="profile-button">
+            <a href="/user/profile.html">
+                <img src="images/user-icon.png" width="28px" height="28px">
+                <h2>Profile</h2>
+            </a>
+        </div>
+    </div>
     <div class="row">
         <div id="liquid-income-table-div" class="liquid-income-table-div">
             <h3>Clean Income</h3>
@@ -47,14 +55,14 @@
                 </tr>
             </table>
         </div>
-        <div>
+        <div id="income-ratio-chart-div" class="income-ratio-chart-div">
             <h3>Income strings ratio</h3>
-            <div id="income-ratio-chart"></div>
+            <div id="income-ratio-chart" class="income-ratio-chart"></div>
             <script src="/graphs/income-ratio-chart.js"></script>
         </div>
-        <div>
+        <div id="budgeting-arrow-table-div" class="budgeting-arrow-table-div">
             <h3>Budgeting</h3>
-            <table id="budgeting-arrow-graph" class="budgeting-arrow-graph">
+            <table id="budgeting-arrow-table" class="budgeting-arrow-table">
                 <tr>
                     <td>Salary</td>
                     <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
@@ -79,9 +87,15 @@
         </div>
     </div>
     <div class="row">
-        <div>
-            <div id="discounts-chart"></div>
+        <div id="discounts-chart-div" class="discounts-chart-div">
+            <h3>Discounts</h3>
+            <div id="discounts-chart" class="discounts-chart"></div>
             <script src="/graphs/discounts-chart.js"></script>
+        </div>
+        <div id="money-left-div" class="money-left-div">
+            <h3>After Discounts and Expenses you have:</h3>
+            <div id="money-left-chart" class="money-left-chart"></div>
+            <script src="/graphs/money-left-chart.js"></script>
         </div>
         <div id="expenses-table-div" class="expenses-table-div">
             <h3>Expenses</h3>

@@ -1,8 +1,10 @@
 
 google.charts.load("current", {packages:["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
-        
+
 function drawChart() {
+    var colors = ['#00602b', '#1b8a43', '#1f9c4d', '#27ae60', '#d2e7f2', '#4ac486', '#33b973']
+
     var data = google.visualization.arrayToDataTable([
         ['Income Source', 'Amount'],
         ['Company 1', 1700],
@@ -12,13 +14,11 @@ function drawChart() {
 
     var options = {
         title: '',
-        pieHole: 0.6,
-        legend: {
-            position: "none",
-        },
+        pieHole: 0.5,
         pieSliceTextStyle: {
             opacity: 0,
         },
+        colors: colors,
     };
 
     var chart = new google.visualization.PieChart(document.querySelector('#income-ratio-chart'));

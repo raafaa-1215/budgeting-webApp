@@ -4,8 +4,8 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
         ["Discount", "Percentage", { role: "style" } ],
-        ["Social Security", 11, null],
-        ["IRS", 15.4, null],
+        ["Social Security", 11, '#FFBF00'],
+        ["IRS", 15.4, '#FFBF00'],
     ]);
 
     var view = new google.visualization.DataView(data);
@@ -13,14 +13,10 @@ function drawChart() {
 
     var options = {
         title: "",
-        width: 600,
-        height: 400,
         bar: {
             groupWidth: "50%"
         },
-        legend: { 
-            position: "none" 
-        },
+        legend: "none",
     };
     var chart = new google.visualization.ColumnChart(document.getElementById('discounts-chart'));
     chart.draw(view, options);
