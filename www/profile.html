@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="styles/profile.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $("#navbar").load("navbar.html");
+        });
+    </script>
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="body">
+        <div class="top-row">
+            <h1>Profile</h1>
+            <button class="back-btn" onclick="location.href='index.html'"><img src="/images/back-icon.png" width="16px" height="16px">Back</button>
+        </div>
+        <form action="/edit-profile" method="post">
+            <label for="username-input">Username:</label>
+            <input type="text" id="username-input" name="username-input">
+            <br>
+            <label for="password-input">Password:</label>
+            <input type="password" id="password-input" name="password-input">
+        </form>
+    </div>
+</body>
+</html>

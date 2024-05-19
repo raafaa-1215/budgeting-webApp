@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --purple: #9c1fe9;
+    --lighpurple: #f7e9fe;
+    --darkgrey: #b6b6b6;
+    --lighgrey: #e9e9e9;
+    --blue: #2980b9;
+    --green: #27ae60;
+    --red: #ea6153;
+    --yellow: #FFBF00;
+    --background: #F8F8F8;
+}
+
+* {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 50px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+.title{
+  display: flex;
+  width: 100%;
+}
+
+#title{
+    width: 90%;
+    margin-bottom: 40px;
+}
+
+.add-class{
+  width: 10%;
+
+}
+
+#button-add-tax{
+  background-color: var(--green);
+  color: white;
+  width: 120px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  
+}
+
+.discounts-table-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.discounts-table {
+    width: 80%;
+    height: fit-content;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.discounts-table td, .discounts-table th {
+    padding: 8px;
+}
+
+.discounts-table tr:nth-child(odd) {
+    background-color: var(--lighgrey); 
+}
+
+.discounts-table th {
+    color: white;
+    background-color: var(--yellow);
+}
+
+.discounts-table button{
+    height: 40px;
+    width: fit-content;
+    border-radius: 5px;
+    border: none;
+    align-items: center;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.action{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.middle{
+    text-align: center;
+}
+
+#edit{
+    background-color: var(--blue);
+}
+
+#remove{
+    background-color: var(--red);
+}

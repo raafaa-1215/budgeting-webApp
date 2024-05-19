@@ -9,128 +9,128 @@
     <link rel="stylesheet" href="/styles/index.css">
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $("#navbar").load("navbar.html");
+        });
+    </script>
 </head>
-<body class="body">
-    <div class="top-banner">
+<body>
+    <div id="navbar"></div>
+    <div class="body">
         <h1 class="overview-title">Overview</h1>
-        <div class="profile-button">
-            <a href="/user/profile.html">
-                <img src="images/user-icon.png" width="28px" height="28px">
-                <h2>Profile</h2>
-            </a>
+        <div class="row">
+            <div id="liquid-income-table-div" class="liquid-income-table-div">
+                <h3>Clean Income</h3>
+                <table id="liquid-income-table" class="liquid-income-table">
+                    <tr>
+                        <th>Amount</th>
+                        <th>Name</th>
+                        <th>Source</th>
+                        <th>Type</th>
+                        <th>Payday</th>
+                    </tr>
+                    <tr>
+                        <td>1500€</td>
+                        <td>Salary</td>
+                        <td>Company 1</td>
+                        <td>Salary</td>
+                        <td>Monthly</td>
+                    </tr>
+                    <tr>
+                        <td>150€</td>
+                        <td>App managing</td>
+                        <td>Company 2</td>
+                        <td>Service</td>
+                        <td>On deploy</td>
+                    </tr>
+                    <tr>
+                        <td>300€</td>
+                        <td>Watch store</td>
+                        <td>Dropshipping</td>
+                        <td>Sales</td>
+                        <td>Weekly</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="income-ratio-chart-div" class="income-ratio-chart-div">
+                <h3>Income strings ratio (in €)</h3>
+                <div id="income-ratio-chart" class="income-ratio-chart"></div>
+                <script src="/graphs/income-ratio-chart.js"></script>
+            </div>
+            <div id="budgeting-arrow-table-div" class="budgeting-arrow-table-div">
+                <h3>Budgeting</h3>
+                <table id="budgeting-arrow-table" class="budgeting-arrow-table">
+                    <tr>
+                        <td>Salary</td>
+                        <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
+                        <td>House rent</td>
+                    </tr>
+                    <tr>
+                        <td>Salary</td>
+                        <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
+                        <td>Food</td>
+                    </tr>
+                    <tr>
+                        <td>Salary</td>
+                        <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
+                        <td>Car fueling</td>
+                    </tr>
+                    <tr>
+                        <td>Watch store</td>
+                        <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
+                        <td>Gym membership</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div id="liquid-income-table-div" class="liquid-income-table-div">
-            <h3>Clean Income</h3>
-            <table id="liquid-income-table" class="liquid-income-table">
-                <tr>
-                    <th>Amount</th>
-                    <th>Name</th>
-                    <th>Source</th>
-                    <th>Type</th>
-                    <th>Payday</th>
-                </tr>
-                <tr>
-                    <td>1500€</td>
-                    <td>Salary</td>
-                    <td>Company 1</td>
-                    <td>Salary</td>
-                    <td>Monthly</td>
-                </tr>
-                <tr>
-                    <td>150€</td>
-                    <td>App managing</td>
-                    <td>Company 2</td>
-                    <td>Service</td>
-                    <td>On deploy</td>
-                </tr>
-                <tr>
-                    <td>300€</td>
-                    <td>Watch store</td>
-                    <td>Dropshipping</td>
-                    <td>Sales</td>
-                    <td>Weekly</td>
-                </tr>
-            </table>
-        </div>
-        <div id="income-ratio-chart-div" class="income-ratio-chart-div">
-            <h3>Income strings ratio</h3>
-            <div id="income-ratio-chart" class="income-ratio-chart"></div>
-            <script src="/graphs/income-ratio-chart.js"></script>
-        </div>
-        <div id="budgeting-arrow-table-div" class="budgeting-arrow-table-div">
-            <h3>Budgeting</h3>
-            <table id="budgeting-arrow-table" class="budgeting-arrow-table">
-                <tr>
-                    <td>Salary</td>
-                    <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
-                    <td>House rent</td>
-                </tr>
-                <tr>
-                    <td>Salary</td>
-                    <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
-                    <td>Food</td>
-                </tr>
-                <tr>
-                    <td>Salary</td>
-                    <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
-                    <td>Car fueling</td>
-                </tr>
-                <tr>
-                    <td>Watch store</td>
-                    <td><img src="/images/arrow-icon.png" width="25px" height="25px"></td>
-                    <td>Gym membership</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="row">
-        <div id="discounts-chart-div" class="discounts-chart-div">
-            <h3>Discounts</h3>
-            <div id="discounts-chart" class="discounts-chart"></div>
-            <script src="/graphs/discounts-chart.js"></script>
-        </div>
-        <div id="money-left-div" class="money-left-div">
-            <h3>After Discounts and Expenses you have:</h3>
-            <div id="money-left-chart" class="money-left-chart"></div>
-            <script src="/graphs/money-left-chart.js"></script>
-        </div>
-        <div id="expenses-table-div" class="expenses-table-div">
-            <h3>Expenses</h3>
-            <table id="expenses-table" class="expenses-table">
-                <tr>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Payment Day</th>
-                </tr>
-                <tr>
-                    <td>600€</td>
-                    <td>House rent</td>
-                    <td>Living expenses</td>
-                    <td>Monthly</td>
-                </tr>
-                <tr>
-                    <td>100€</td>
-                    <td>Food</td>
-                    <td>Living expenses</td>
-                    <td>Weekly</td>
-                </tr>
-                <tr>
-                    <td>15€</td>
-                    <td>Gym membership</td>
-                    <td>leisure</td>
-                    <td>biweekly</td>
-                </tr>
-                <tr>
-                    <td>40€</td>
-                    <td>Car fueling</td>
-                    <td>Living expenses</td>
-                    <td>Weekly</td>
-                </tr>
-            </table>
+        <div class="row">
+            <div id="taxes-chart-div" class="taxes-chart-div">
+                <h3>Taxes (in %)</h3>
+                <div id="taxes-chart" class="taxes-chart"></div>
+                <script src="/graphs/taxes-chart.js"></script>
+            </div>
+            <div id="money-left-div" class="money-left-div">
+                <h3>After Taxes and Expenses you have:</h3>
+                <div id="money-left-chart" class="money-left-chart"></div>
+                <script src="/graphs/money-left-chart.js"></script>
+            </div>
+            <div id="expenses-table-div" class="expenses-table-div">
+                <h3>Expenses</h3>
+                <table id="expenses-table" class="expenses-table">
+                    <tr>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Payment Day</th>
+                    </tr>
+                    <tr>
+                        <td>600€</td>
+                        <td>House rent</td>
+                        <td>Living expenses</td>
+                        <td>Monthly</td>
+                    </tr>
+                    <tr>
+                        <td>100€</td>
+                        <td>Food</td>
+                        <td>Living expenses</td>
+                        <td>Weekly</td>
+                    </tr>
+                    <tr>
+                        <td>15€</td>
+                        <td>Gym membership</td>
+                        <td>leisure</td>
+                        <td>biweekly</td>
+                    </tr>
+                    <tr>
+                        <td>40€</td>
+                        <td>Car fueling</td>
+                        <td>Living expenses</td>
+                        <td>Weekly</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </body>

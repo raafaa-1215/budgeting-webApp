@@ -18,6 +18,6 @@ function drawChart() {
         },
         legend: "none",
     };
-    var chart = new google.visualization.ColumnChart(document.getElementById('discounts-chart'));
+    var chart = new google.visualization.ColumnChart(document.getElementById('taxes-chart'));
     chart.draw(view, options);
 }

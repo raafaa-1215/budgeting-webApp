@@ -9,6 +9,7 @@
     --green: #27ae60;
     --red: #ea6153;
     --yellow: #FFBF00;
+    --background: #f8f8f8;
 }
 
 * {
@@ -24,33 +25,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 50px;
+    padding: 30px 8%;
     background-color: #f8f8f8;
 }
 
-.top-banner {
-    width: 100%;
-    display: flex;
-}
-
+/* Title */
 .overview-title {
-    width: 90%;
-}
-
-.profile-button {
-    width: 10%;
-    text-align: right;
-}
-
-.profile-button a {
     width: 100%;
-    text-decoration: none;
-    color: black;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
 }
 
+/* Panel rows */
 .row {
     width: 100%;
     height: fit-content;
@@ -139,18 +123,18 @@
 }
 
 /* Second row */
-/* Discounts graph panel */
-.discounts-chart-div {
+/* Taxes graph panel */
+.taxes-chart-div {
     width: 30%;
 }
 
-.discounts-chart-div h3 {
+.taxes-chart-div h3 {
     width: 100%;
     margin-bottom: 20px;
     color: var(--yellow);
 }
 
-.discounts-chart {
+.taxes-chart {
     width: 100%;
 }
 

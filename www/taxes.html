@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Taxes</title>
+
+    <link rel="stylesheet" href="styles/taxes.css">
+
+    
+</head>
+<body>
+    <div class="title">
+        <h1 id="title">Discounts</h1>
+        <div class="add-tax">
+            <button id="button-add-tax" onclick="location.href='add-tax.html'">Add New tax</button>
+        </div>
+    </div>
+    
+    <div class="discounts-table-div">
+        <table class="discounts-table">
+            <tr>
+                <th>Name</th>
+                <th>Percentage</th>
+                <th>Description</th>
+                <th>Created</th>
+                <th>Last Edited</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td class="name">IRS</td>
+                <td class="middle">11%</td>
+                <td>Índice de Rendimento Social</td>
+                <td class="middle">01-01-2024</td>
+                <td class="middle">02-02-2024</td>
+                <td class="action">
+                    <button id="edit" onclick="location.href='edit-tax.html'"><img src="/images/edit-icon.png" width="24px" height="24px">Edit</button>
+                    <button id="remove"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>IRS</td>
+                <td class="middle">11%</td>
+                <td>Índice de Rendimento Social</td>
+                <td class="middle">01-01-2024</td>
+                <td class="middle">02-02-2024</td>
+                <td class="action">
+                    <button id="edit" onclick="location.href='edit-tax.html'"><img src="/images/edit-icon.png" width="24px" height="24px">Edit</button>
+                    <button id="remove" ><img src="/images/delete-icon.png" width="24px" height="24px">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
