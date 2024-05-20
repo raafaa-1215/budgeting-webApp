@@ -21,13 +21,15 @@
 
 .body {
     width: 100%;
-    height: 100vh;
+    height: 91vh;
     display: flex;
     flex-direction: column;
-    padding: 3% 8%;
-    background-color: #f8f8f8;
+    justify-content: space-around;
+    padding: 30px 8%;
+    background-color: var(--background);
 }
 
+/* Title and back button */
 .top-row {
     width: 100%;
     display: flex;
@@ -59,3 +61,107 @@
     transform: scale(1.20);
     transition-duration: .2s;
 }
+
+/* Edit profile form */
+.mid-row {
+    width: 100%;
+    padding: 50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mid-row form {
+    width: 80%;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.input {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.input label {
+    width: 30%;
+}
+
+.input input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid var(--darkgrey);
+    border-radius: 2px;
+}
+
+.btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-div input {
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 2px;
+    border: 1px solid var(--green);
+    background-color: var(--green);
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-div input:disabled {
+    border: 1px solid var(--darkgrey);
+    background-color: var(--lighgrey);
+    color: black;
+    cursor: not-allowed;
+}
+
+.btn-div input:hover {
+    cursor: pointer;
+    transform: scale(1.20);
+    transition-duration: .2s;
+}
+
+.edit-btn, .cancel-btn {
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 2px;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn {
+    border: 1px solid var(--yellow);
+    background-color: var(--yellow);
+}
+
+.cancel-btn {
+    display: none;
+    border: 1px solid var(--red);
+    background-color: var(--red);
+}
+
+.edit-btn img, .cancel-btn img {
+    margin-right: 15px;
+}
+
+.edit-btn:hover, .cancel-btn:hover {
+    cursor: pointer;
+    transform: scale(1.20);
+    transition-duration: .2s;
+}
+
+

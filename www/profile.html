@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="styles/profile.css">
 
+    <script src="scripts/profile-scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(function() {
@@ -20,15 +21,26 @@
     <div class="body">
         <div class="top-row">
             <h1>Profile</h1>
-            <button class="back-btn" onclick="location.href='index.html'"><img src="/images/back-icon.png" width="16px" height="16px">Back</button>
+            <button class="back-btn" onclick="location.href='index.html'"><img src="/images/back-icon.png" width="24px" height="24px">Back</button>
         </div>
-        <form action="/edit-profile" method="post">
-            <label for="username-input">Username:</label>
-            <input type="text" id="username-input" name="username-input">
-            <br>
-            <label for="password-input">Password:</label>
-            <input type="password" id="password-input" name="password-input">
-        </form>
+        <div class="mid-row">
+            <form action="/edit-profile" method="post">
+                <div class="input">
+                    <label for="username-input"><h3>Username:</h3></label>
+                    <input type="text" id="username-input" name="username-input" value="Rafazao" disabled>
+                </div>
+                <div class="input">
+                    <label for="password-input"><h3>Password:</h3></label>
+                <input type="password" id="password-input" name="password-input" value="teste123" disabled>
+                </div>
+                <br>
+                <div class="btn-div">
+                    <input type="submit" value="Submit changes" id="submit-btn" disabled>
+                </div>
+            </form>
+            <button class="edit-btn" id="edit-btn" onclick="enableEditProfile()"><img src="/images/edit-icon.png" width="24px" height="24px">Edit profile</button>
+            <button class="cancel-btn" id="cancel-btn" onclick="disableEditProfile()"><img src="/images/edit-icon.png" width="24px" height="24px">Cancel</button>
+        </div>
     </div>
 </body>
 </html>
