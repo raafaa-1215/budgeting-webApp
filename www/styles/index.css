@@ -125,7 +125,7 @@
 /* Second row */
 /* Taxes graph panel */
 .taxes-chart-div {
-    width: 30%;
+    width: 25%;
 }
 
 .taxes-chart-div h3 {
@@ -140,7 +140,7 @@
 
 /* Money left graph panel */
 .money-left-div {
-    width: 20%;
+    width: 10%;
 }
 
 .money-left-div h3 {
@@ -154,7 +154,7 @@
 
 /* Expenses table panel */
 .expenses-table-div {
-    width: 45%;
+    width: 60%;
 }
 
 .expenses-table-div h3 {

@@ -7,11 +7,13 @@
 * @param {string} nameLiquidIncome - liquid income name
 * @param {string} nameExpense - expenses name
 * @param {float} budgetLeft - budget amount left
+* @param {string} dateAdded - date when budget is added
 */
 class Budget {
-    constructor(liquidIncome, expense){
-        this.nameLiquidIncome = liquidIncome.name;
-        this.nameExpense = expense.name;
-        this.budgetLeft = liquidIncome.amount - expense.amount;
+    constructor(liquidIncomeName, expenseName, liquidIncomeAmount, expenseAmount, dateAdded){
+        this.nameLiquidIncome = liquidIncomeName;
+        this.nameExpense = expenseName;
+        this.budgetLeft = liquidIncomeAmount -expenseAmount;
+        this.dateAdded = dateAdded;
     }
 }

@@ -1,0 +1,162 @@
+{
+    "IncomeData": [
+        {
+            "name": "Salary",
+            "description": "Monthly Salary",
+            "type": "Salary",
+            "source": "Company A",
+            "amount": 3000.00,
+            "payday": "Monthly",
+            "dateAdded": "15-03-2023",
+            "lastEditDate": "15-03-2023"
+        },
+        {
+            "name": "Freelancer",
+            "description": "freelance work earnings",
+            "type": "Freelancer",
+            "source": "Client B",
+            "amount": 500.00,
+            "payday": "Weekly",
+            "dateAdded": "20-03-2023",
+            "lastEditDate": "20-03-2023"
+        },
+        {
+            "name": "Bonus",
+            "description": "work bonuses",
+            "type": "Bonus",
+            "source": "Company A",
+            "amount": 200.00,
+            "payday": "Monthly",
+            "dateAdded": "25-03-2023",
+            "lastEditDate": "25-03-2023"
+        },
+        {
+            "name": "Investments",
+            "description": "Investment earnings",
+            "type": "Investments",
+            "source": "Bank C",
+            "amount": 100.00,
+            "payday": "Monthly",
+            "dateAdded": "30-03-2023",
+            "lastEditDate": "30-03-2023"
+        }
+    ],
+
+    "TaxesData": [
+        {
+            "name": "IRS",
+            "description": "Imposto sobre o rendimento das pessoas singulares",
+            "percentage": 0.15,
+            "method": "flat",
+            "dateAdded": "16-03-2023",
+            "lastEditDate": "16-03-2023"
+        },
+        {
+            "name": "IVA",
+            "description": "Imposto sobre o Valor Acrescentado",
+            "percentage": 0.23,
+            "method": "stacking",
+            "dateAdded": "15-03-2023",
+            "lastEditDate": "15-03-2023"
+        },
+        {
+            "name": "IMI",
+            "description": "Imposto sobre a propriedade de imóveis",
+            "percentage": 0.05,
+            "method": "stacking",
+            "dateAdded": "17-03-2023",
+            "lastEditDate": "17-03-2023"
+        },
+        {
+            "name": "IMP",
+            "description": "Imposto sobre o valor do patrimônio",
+            "percentage": 0.01,
+            "method": "flat",
+            "dateAdded": "20-03-2023",
+            "lastEditDate": "20-03-2023"
+        }
+    ],
+
+    "LiquidIncomeData": [
+        {
+            "name": "Liquid Salary",
+            "taxName": "Imposto de Renda",
+            "incomeAmount": 3000.00,
+            "taxPercentage": 12.00,
+            "dateAdded": "15-03-2023",
+            "lastEditDate": "15-03-2023"
+        },
+        {
+            "name": "Freelancer Liquid",
+            "taxName": "IVA",
+            "incomeAmount": 1500.00,
+            "taxPercentage": 23.00,
+            "dateAdded": "20-03-2023",
+            "lastEditDate": "20-03-2023"
+        },
+        {
+            "name": "Bonus Liquid",
+            "taxName": "Imposto de Renda",
+            "incomeAmount": 1240.00,
+            "taxPercentage": 2.00,
+            "dateAdded": "25-03-2023",
+            "lastEditDate": "25-03-2023"
+        }
+    ],
+
+    "ExpensesData": [
+        {
+            "name": "Rent",
+            "description": "Apartment's rent",
+            "type": "Living Expenses",
+            "amount": 1500.00,
+            "paymentDay": "Monthly",
+            "dateAdded": "01-03-2023",
+            "lastEditDate": "01-03-2023"
+        },
+        {
+            "name": "Supermarket",
+            "description": "Purchase of food and hygiene products",
+            "type": "Food/Hygiene",
+            "amount": 500.00,
+            "paymentDay": "Weekly",
+            "dateAdded": "05-03-2023",
+            "lastEditDate": "05-03-2023"
+        },
+        {
+            "name": "Fuel",
+            "description": "Car fuel",
+            "type": "Transportation",
+            "amount": 200.00,
+            "paymentDay": "Monthly",
+            "dateAdded": "10-03-2023",
+            "lastEditDate": "10-03-2023"
+        },
+        {
+            "name": "Internet",
+            "description": "Internet Services",
+            "type": "Services",
+            "amount": 80.00,
+            "paymentDay": "Monthly",
+            "dateAdded": "15-03-2023",
+            "lastEditDate": "15-03-2023"
+        }
+    ],
+
+    "BudgetingData": [
+        {
+            "liquidIncomeName": "Salary",
+            "expenseName": "Rent",
+            "liquidIncomeAmount": 500,
+            "expenseAmount": 100,
+            "dateAdded":"16-03-2023"
+        },
+        {
+            "liquidIncomeName": "Salary",
+            "expenseName": "Rent",
+            "budgetLeft": 500,
+            "expenseAmount": 100,
+            "dateAdded":"25-03-2023"
+        }
+    ]
+}

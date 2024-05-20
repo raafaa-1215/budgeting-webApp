@@ -7,7 +7,7 @@
 * @param {string} name - tax name
 * @param {string} description - tax description
 * @param {float} percentage - tax discount percentage
-* @param {float} method - tax discount method (stacking or flat)
+* @param {string} method - tax discount method (stacking or flat)
 * @param {string} dateAdded - date when tax is added
 * @param {string} lastEditDate - date when tax was last edited
 */
