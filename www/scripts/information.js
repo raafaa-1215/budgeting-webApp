@@ -137,6 +137,5 @@ class Information {
       
         return year + '-' + month + '-' + day;
     }
-
 }
 
