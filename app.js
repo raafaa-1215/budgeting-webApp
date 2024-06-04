@@ -1,22 +1,14 @@
 const express = require("express");
 const port = 4000;
 const bodyParser = require("body-parser");
-const server = express();
-const fs = require('fs');
+const app = express();
+const handler = require("scripts/request-handler.js");
 
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded());
 
-server.get('/data', (req, res) => {
-    const jsonData = fs.readFileSync('mockup-data.json', 'utf8');
-    res.json(jsonData);
-});
+app.get("/", handler.getIndex);
 
-server.use(bodyParser.urlencoded());
-server.use(express.static("www"));
-
-server.get("/", function (req, res) {
-    res.sendFile(__dirname + '/www/index.html');
-});
-
-server.listen(port, function () {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(port, function () {
+    console.log(`app running at http://localhost:${port}`);
 });
