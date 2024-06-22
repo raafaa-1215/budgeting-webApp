@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Liquid Income</title>
+        <link rel="stylesheet" href="liquid-income.css">
+        <script type="text/javascript" src="features.js"></script>
+    </head>
+    <body>
+        <%- include('navbar') %>
+        <div class="body">
+            <div class="top-row">
+                <h1>Liquid Incomes</h1>
+                <a class="back-btn" href="/"><img src="back-icon.png" width="24px" height="24px">Back</a>
+            </div>
+
+            <div class="liquid-income-table-div" id="liquid-income-table-div">
+                <div class="add-btn-div">
+                    <button  class="add-btn" onclick="togglePopUp(1)"><img src="/add-icon.png" width="24px" height="24px">Add New Liquid Income</button>
+                </div>
+                <table class="liquid-income-table">
+                    <tr>
+                        <th>Amount</th>
+                        <th>Name</th>
+                        <th>Tax Aplied</th>
+                        <th>Added</th>
+                        <th>Last Edited</th>
+                        <th>Actions</th>
+                    </tr>
+                    <% if (liquidIncomeData == null) { %>
+                        <td colspan="9"><h2>No data found!</h2></td>
+                     <% } else {
+                            for (let i=0; i < liquidIncomeData.length; i++) { %>
+                                <tr>
+                                    <td><%= liquidIncomeData[i].amount %></td>
+                                    <td><%= liquidIncomeData[i].name %></td>
+                                    <td><%= liquidIncomeData[i].taxAplied %></td>
+                                    <td><%= liquidIncomeData[i].dateAdded %></td>
+                                    <td><%= liquidIncomeData[i].lasEditDate %></td>
+                                    <td>
+                                        <!-- todo: acabar ambos os botões -->
+                                        <button class="btn-open-popup" id="edit" onclick="togglePopUp(2)"><img src="/edit-icon.png" width="24px" height="24px">Edit</button>
+                                        <button id="remove"><img src="/delete-icon.png" width="24px" height="24px">Delete</button>
+                                    </td>
+                                </tr>
+                     <% } } %>      
+                </table>
+            </div>
+        </div>
+
+        <!-- Add New Button PopUp-->
+         <!-- todo: acabar add -->
+        <div class="popup">
+            <div id="popupOverlayAdd" class="overlay-container"> 
+                <div class="popup-box"> 
+                    <h2> Add Liquid Income</h2> 
+                    <form class="form-container"> 
+                        <label class="form-label" for="name"><h3> Name: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Name" id="name" name="name" required> 
+                        <label class="form-label" for="amount"> <h3>Amount: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required> 
+                        <label class="form-label" for="source"><h3>Source: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Source" id="source" name="source" required>
+                        <label class="form-label" for="type"><h3>Type: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Type" id="type" name="type" required>
+                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Payday" id="payday" name="payday" required>
+                        <button class="btn-submit" type="submit"> Submit </button> 
+                    </form> 
+                    <button id="close" class="btn-close-popup" onclick="togglePopUp(1)"> Close </button> 
+                </div> 
+            </div> 
+        </div>
+
+        <!-- Edit Button -->
+        <!-- todo: acabar edit -->
+        <div class="popup">
+            <div id="popupOverlayEdit" class="overlay-container"> 
+                <div class="popup-box"> 
+                    <h2> Edit Liquid Income</h2> 
+                    <form class="form-container"> 
+                        <label class="form-label" for="name"><h3> Name: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Name" id="name" name="name" required> 
+                        <label class="form-label" for="amount"> <h3>Amount: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required> 
+                        <label class="form-label" for="source"><h3>Source: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Source" id="source" name="source" required>
+                        <label class="form-label" for="type"><h3>Type: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Type" id="type" name="type" required>
+                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Payday" id="payday" name="payday" required>
+                        <button class="btn-submit" type="submit"> Submit </button> 
+                    </form> 
+                    <button id="close" class="btn-close-popup" onclick="togglePopUp(2)"> Close </button> 
+                </div> 
+            </div> 
+        </div>
+
+    </body>
+</html>

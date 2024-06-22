@@ -18,11 +18,14 @@
             <form action="/edit-profile" method="post">
                 <div class="input">
                     <label for="username-input"><h3>Username:</h3></label>
-                    <input type="text" id="username-input" name="username-input" value="<%= userData.username %>" disabled>
+                    <input type="text" id="username-input" name="username-input" value="<%= userData[0].username %>" disabled>
                 </div>
                 <div class="input">
                     <label for="password-input"><h3>Password:</h3></label>
-                <input type="password" id="password-input" name="password-input" value="<%= userData.password %>" disabled>
+                    <input type="password" id="password-input" name="password-input" value="<%= userData[0].password %>" disabled>
+                </div>
+                <div class="input">
+                    <h3>Joined In: <%= userData[0].joinDate %></h3>
                 </div>
                 <br>
                 <div class="btn-div">

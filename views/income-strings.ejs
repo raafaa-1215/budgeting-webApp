@@ -27,62 +27,41 @@
                         <th>Source</th>
                         <th>Amount</th>
                         <th>Payday</th>
-                        <th>Created</th>
+                        <th>Added</th>
                         <th>Last Edited</th>
                         <th>Actions</th>
                     </tr>
-                    <tr>
-                        <td>ExampleName1</td>
-                        <td>ExampleDescription1</td>
-                        <td>Salary</td>
-                        <td>ExampleCompany1</td>
-                        <td class="middle">1700€</td>
-                        <td>Monthly</td>
-                        <td class="middle">01-01-2024</td>
-                        <td class="middle">02-02-2024</td>
-                        <td class="action">
-                            <button class="edit" id="edit" onclick="togglePopUp(2)"><img src="edit-icon.png" width="24px" height="24px">Edit</button>
-                            <button id="remove" class="remove"><img src="delete-icon.png" width="24px" height="24px">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>ExampleName2</td>
-                        <td>ExampleDescription2</td>
-                        <td>Service</td>
-                        <td>ExampleCompany2</td>
-                        <td class="middle">1700€</td>
-                        <td>Monthly</td>
-                        <td class="middle">01-01-2024</td>
-                        <td class="middle">02-02-2024</td>
-                        <td class="action">
-                            <button class="edit" id="edit" onclick="togglePopUp(2)"><img src="edit-icon.png" width="24px" height="24px">Edit</button>
-                            <button id="remove" class="remove"><img src="delete-icon.png" width="24px" height="24px">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>ExampleName3</td>
-                        <td>ExampleDescription3</td>
-                        <td>Sales</td>
-                        <td>ExampleCompany3</td>
-                        <td class="middle">1700€</td>
-                        <td>Monthly</td>
-                        <td class="middle">01-01-2024</td>
-                        <td class="middle">02-02-2024</td>
-                        <td class="action">
-                            <button class="edit" id="edit" onclick="togglePopUp(2)"><img src="edit-icon.png" width="24px" height="24px">Edit</button>
-                            <button id="remove" class="remove"><img src="delete-icon.png" width="24px" height="24px">Delete</button>
-                        </td>
-                    </tr>        
+                    <% if (incomeStringsData[0] == null) { %>
+                       <td colspan="9"><h2>No data found!</h2></td>
+                    <% } else {
+                        for (let i=0; i < incomeStringsData.length; i++) { %>
+                            <tr>
+                                <td><%= incomeStringsData[i].name %></td>
+                                <td><%= incomeStringsData[i].description %></td>
+                                <td><%= incomeStringsData[i].type %></td>
+                                <td><%= incomeStringsData[i].source %></td>
+                                <td><%= incomeStringsData[i].amount %>€</td>
+                                <td><%= incomeStringsData[i].payday %></td>
+                                <td><%= incomeStringsData[i].dateAdded %></td>
+                                <td><%= incomeStringsData[i].lastEditDate %></td>
+                                <td>
+                                    <!-- todo: acabar ambos os botões -->
+                                    <button class="btn-open-popup" id="edit" onclick="togglePopUp(3)"><img src="/edit-icon.png" width="24px" height="24px">Edit</button>
+                                    <button id="remove"><img src="/delete-icon.png" width="24px" height="24px">Delete</button>
+                                </td>
+                            </tr>
+                    <% } } %>
                 </table>
             </div>
         </div>
 
         <!-- Add New Button Popup-->
+        <!-- todo: acabar add -->
         <div class="popup">
             <div id="popupOverlayAdd" class="overlay-container"> 
                 <div class="popup-box"> 
                     <h2> Add Income String</h2> 
-                    <form class="form-container"> 
+                    <form class="form-container" action="/addIncomeString" method="post"> 
                         <label class="form-label" for="name"><h3> Name: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Name" id="name" name="name" required> 
                         <label class="form-label" for="description"><h3> Description: </h3></label> 
@@ -97,18 +76,19 @@
                         <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required>
                         <button class="btn-submit" type="submit"> Submit </button> 
                     </form> 
-            
                     <button id="close" class="btn-close-popup" onclick="togglePopUp(1)"> Close </button> 
                 </div> 
             </div> 
         </div>
 
         <!-- Edit Button Popup -->
+        <!-- todo: acabar edit -->
         <div class="popup">
             <div id="popupOverlayEdit" class="overlay-container"> 
                 <div class="popup-box"> 
                     <h2> Edit Income String</h2> 
-                    <form class="form-container"> 
+                    <form class="form-container" action="/editIncomeString" method="put">
+                        <input type="hidden" name="id" value="">
                         <label class="form-label" for="name"><h3> Name: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Name" id="name" name="name" required> 
                         <label class="form-label" for="description"><h3> Description: </h3></label> 
@@ -122,8 +102,7 @@
                         <label class="form-label" for="amount"> <h3>Amount: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required>
                         <button class="btn-submit" type="submit"> Submit </button>  
-                    </form> 
-            
+                    </form>
                     <button id="close" class="btn-close-popup" onclick="togglePopUp(2)"> Close </button> 
                 </div> 
             </div> 
