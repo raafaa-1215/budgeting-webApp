@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
@@ -11,23 +11,26 @@
         <div class="content">
             <img src="/user-icon.png" alt="Imagem" >
             <h1> Sign Up </h1>
+            <% if(error[0] != null) { %>
+                <p style="color: red"><%= error %></p>
+            <% } %>
             
             <div class="signup_data">
                 <form method="post" id="signupForm">
                     <div class="input">
                         <label for="username"><h2>Username:</h2></label>
                         <br>
-                        <input type="text" name="username" id="username" placeholder="Insert Username">
+                        <input type="text" name="username" id="username" placeholder="Insert Username" required>
                     </div>
                     <div class="input">
                         <label for="email"><h2>Email:</h2></label>
                         <br>
-                        <input type="email" name="email" id="email" placeholder="Insert Email">
+                        <input type="email" name="email" id="email" placeholder="Insert Email" required>
                     </div>
                     <div class="input">
                         <label for="password"><h2>Password:</h2></label>
                         <br>
-                        <input type="password" name="password" id="password" placeholder="Insert Password">
+                        <input type="password" name="password" id="password" placeholder="Insert Password" required>
                     </div>
                     <div class="login-link">
                         <a href="/login"><h5>Already have an account? Login here!</h5></a>

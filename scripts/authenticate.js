@@ -32,7 +32,7 @@ loginForm.addEventListener('submit', (event) => {
     .then(data => {
     })
     .catch(error => {
-            console.error('Error:', error);
+        console.error('Error:', error);
     });
 });
 

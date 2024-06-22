@@ -28,7 +28,7 @@
                         <th>Last Edited</th>
                         <th>Actions</th>
                     </tr>
-                    <% if (liquidIncomeData == null) { %>
+                    <% if (liquidIncomeData[0] == null) { %>
                         <td colspan="9"><h2>No data found!</h2></td>
                      <% } else {
                             for (let i=0; i < liquidIncomeData.length; i++) { %>

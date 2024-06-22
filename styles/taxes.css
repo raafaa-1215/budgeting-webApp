@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root {
+    --purple: #9c1fe9;
+    --lighpurple: #f7e9fe;
+    --darkgrey: #b6b6b6;
+    --lighgrey: #e9e9e9;
+    --blue: #2980b9;
+    --green: #27ae60;
+    --red: #ea6153;
+    --yellow: #FFBF00;
+    --background: #F8F8F8;
+}
+
+* {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.top-row {
+    width: 100%;
+    display: flex;
+}
+
+.body{
+    padding: 30px 8%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+    background-color: var(--background);
+}
+
+.top-row h1 {
+    width: 90%;
+}
+
+.back-btn {
+    width: 10%;
+    padding: 5px 10px;
+    border-radius: 2px;
+    border: 1px solid var(--blue);
+    background-color: var(--blue);
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.back-btn img {
+    margin-right: 15px;
+}
+
+.back-btn:hover {
+    cursor: pointer;
+    transform: scale(1.20);
+    transition-duration: .2s;
+}
+
+.add-btn-div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 40px;
+}
+
+.add-btn {
+    padding: 10px 10px;
+    border-radius: 2px;
+    border: 1px solid var(--green);
+    background-color: var(--green); 
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.add-btn img{
+    margin-right: 15px;
+}
+
+.add-btn:hover{
+    transform:scale(1.10); 
+    transition-duration: .2s; 
+    cursor: pointer;
+}
+
+.back{
+    display:flex;
+    padding-bottom: 40px;
+    justify-content: right;
+    
+}
+
+.taxes-table-div {
+    width: 100%;
+    display: flex;
+    padding: 50px 50px 50px;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.taxes-table {
+    width: 100%;
+    padding: 0;
+    margin:0;
+    height: fit-content;
+    border-collapse: collapse;
+}
+
+.taxes-table td, .taxes-table th {
+    padding: 8px;
+    margin: 8px;
+}
+
+.taxes-table tr:nth-child(odd) {
+    background-color: var(--lighgrey); 
+}
+
+.taxes-table th {
+    color: white;
+    background-color: var(--yellow);
+}
+
+.taxes-table button{
+    height: 40px;
+    width: fit-content;
+    border-radius: 2px;
+    border: none;
+    align-items: center;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.action{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.middle{
+    text-align: center;
+}
+
+#edit{
+    background-color: var(--yellow);
+    margin: 2%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#remove {
+    background-color: var(--red);
+    margin-right: 2%;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer; 
+}
+
+/* ******************* PopUp ****************** */
+
+.btn-open-popup { 
+    padding: 12px 24px; 
+    font-size: 18px; 
+    background-color: var(--green); 
+    color: #fff; 
+    border: none; 
+    border-radius: 2px; 
+    cursor: pointer; 
+    align-items: center;
+    margin: 10px;
+} 
+
+.btn-open-popup:hover { 
+    transform:scale(1.10); 
+    transition-duration: .2s; 
+} 
+
+.overlay-container { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.6); 
+    justify-content: center; 
+    align-items: center; 
+    opacity: 0; 
+} 
+
+.popup-box { 
+    background: #fff; 
+    padding: 50px 24px; 
+    border-radius: 5px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); 
+    width: 60%;
+    text-align: center; 
+    opacity: 0; 
+    transform: scale(0.8); 
+    animation: fadeInUp 0.5s ease-out forwards; 
+} 
+
+.popup-box h2{
+    margin-bottom: 10px;
+}
+
+.form-container { 
+    display: flex; 
+    flex-direction: column; 
+    padding: 0 5%;
+} 
+
+.form-label { 
+    margin-bottom: 10px; 
+    font-size: 16px;
+    color: #444; 
+    text-align: left; 
+} 
+
+.form-label h3{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.form-input { 
+    padding: 10px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 2px; 
+    font-size: 16px; 
+    width: 100%; 
+    box-sizing: border-box; 
+} 
+
+.btn-submit, 
+.btn-close-popup { 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 2px; 
+    cursor: pointer;
+} 
+
+.btn-submit { 
+    margin-top: 40px;
+    background-color: var(--green); 
+    color: #fff;
+    width: 100%; 
+} 
+
+.btn-close-popup { 
+    margin-top: 12px; 
+    background-color: #e74c3c; 
+    color: #fff; 
+    width: 90%;
+} 
+
+.btn-submit:hover,
+.btn-close-popup:hover { 
+    transform:scale(1.05); 
+    transition-duration: .2s;
+}
+
+/* Keyframes for fadeInUp animation */ 
+@keyframes fadeInUp { 
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    } 
+
+
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+/* Animation for popup */ 
+.overlay-container.show { 
+    display: flex; 
+    opacity: 1; 
+} 

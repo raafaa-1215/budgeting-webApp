@@ -11,18 +11,21 @@
         <div class="content">
             <img src="user-icon.png" alt="Imagem" >
             <h1> Login </h1>
+            <% if(error[0] != null) { %>
+                <p style="color: red"><%= error %></p>
+            <% } %>
             
             <div class="login_data">
                 <form method="post" id="loginForm">
                     <div class="input">
                         <label for="username"><h2>Username:</h2></label>
                         <br>
-                        <input type="text" name="username" id="username" placeholder="Insert Username">
+                        <input type="text" name="username" id="username" placeholder="Insert Username" required>
                     </div>
                     <div class="input">
                         <label for="password"><h2>Password:</h2></label>
                         <br>
-                        <input type="password" name="password" id="password" placeholder="Insert Password">
+                        <input type="password" name="password" id="password" placeholder="Insert Password" required>
                     </div>
                     <div class="signup-link">
                         <a href="/signup"><h5>Don't have an account? Sign Up here!</h5></a>

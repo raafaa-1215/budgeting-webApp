@@ -3,47 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Income Strings</title>
-        <link rel="stylesheet" href="income-strings.css">
-        <script type="text/javascript" src="features.js"></script>
+        <title>Expenses</title>
+        <link rel="stylesheet" href="expenses.css">
     </head>
     <body>
         <%- include('navbar') %>
         <div class="body">
             <div class="top-row">
-                <h1>Income Strings</h1>
+                <h1>Expenses</h1>
                 <a class="back-btn" href="/"><img src="back-icon.png" width="24px" height="24px">Back</a>
             </div>
 
-            <div class="income-strings-table-div" id="income-strings-table-div">
+            <div class="expenses-table-div" id="expenses-table-div">
                 <div class="add-btn-div">
-                    <button  class="add-btn" onclick="togglePopUp(1)"><img src="add-icon.png" width="24px" height="24px">Add New Income String</button>
+                    <button  class="add-btn" onclick="togglePopUp(1)"><img src="add-icon.png" width="24px" height="24px">Add New Expense</button>
                 </div>
-                <table class="income-strings-table">
+                <table class="expenses-table">
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Type</th>
-                        <th>Source</th>
                         <th>Amount</th>
-                        <th>Payday</th>
+                        <th>Payment Day</th>
                         <th>Added</th>
                         <th>Last Edited</th>
                         <th>Actions</th>
                     </tr>
-                    <% if (incomeStringsData[0] == null) { %>
-                       <td colspan="9"><h2>No data found!</h2></td>
+                    <%if (expensesData[0] == null) { %>
+                        <td colspan="9"><h2>No data found!</h2></td>
                     <% } else {
-                        for (let i=0; i < incomeStringsData.length; i++) { %>
+                        for (let i = 0; i < expensesData.length; i++) { %>
                             <tr>
-                                <td><%= incomeStringsData[i].name %></td>
-                                <td><%= incomeStringsData[i].description %></td>
-                                <td><%= incomeStringsData[i].type %></td>
-                                <td><%= incomeStringsData[i].source %></td>
-                                <td><%= incomeStringsData[i].amount %>€</td>
-                                <td><%= incomeStringsData[i].payday %></td>
-                                <td><%= incomeStringsData[i].dateAdded %></td>
-                                <td><%= incomeStringsData[i].lastEditDate %></td>
+                                <td><%= expensesData[i].name %></td>
+                                <td><%= expensesData[i].description %></td>
+                                <td><%= expensesData[i].type %></td>
+                                <td><%= expensesData[i].amount %>€</td>
+                                <td><%= expensesData[i].paymentDay %></td>
+                                <td><%= expensesData[i].dateAdded %></td>
+                                <td><%= expensesData[i].lastEditDate %></td>
                                 <td>
                                     <!-- todo: acabar ambos os botões -->
                                     <button class="btn-open-popup" id="edit" onclick="togglePopUp(2)"><img src="/edit-icon.png" width="24px" height="24px">Edit</button>
@@ -86,26 +83,23 @@
         <div class="popup">
             <div id="popupOverlayEdit" class="overlay-container"> 
                 <div class="popup-box"> 
-                    <h2> Edit Income String</h2> 
+                    <h2> Edit Expenses</h2> 
                     <form class="form-container" method="put">
                         <input type="hidden" name="id" value="">
-                        <label class="form-label" for="name"><h3> Name: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Name" id="name" name="name" required> 
+                        <label class="form-label" for="name"><h3> Amount: </h3></label> 
+                        <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required> 
                         <label class="form-label" for="description"><h3> Description: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Description" id="description" name="description" required> 
-                        <label class="form-label" for="source"><h3>Source: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Source" id="source" name="source" required>
-                        <label class="form-label" for="type"><h3>Type: </h3></label> 
+                        <label class="form-label" for="source"><h3>Type: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Type" id="type" name="type" required>
-                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
+                        <label class="form-label" for="type"><h3>Payday: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Payday" id="payday" name="payday" required>
-                        <label class="form-label" for="amount"> <h3>Amount: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required>
                         <button class="btn-submit" type="submit"> Submit </button>  
                     </form>
                     <button id="close" class="btn-close-popup" onclick="togglePopUp(2)"> Close </button> 
                 </div> 
             </div> 
         </div>
+
     </body>
 </html>

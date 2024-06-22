@@ -2,7 +2,6 @@
 const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const cookieParser = require("cookie-parser");
 const path = require('path');
 const mysql = require('mysql');
 // script imports
@@ -58,7 +57,18 @@ app.get("/incomeStrings", (req, res) => {handler.getIncomeStrings(req,res, getCo
 // liquid income page endpoints
 app.get("/liquidIncome", (req, res) => {handler.getLiquidIncome(req,res, getConnection());});
 
+// taxes page endpoints
+app.get("/taxes", (req, res) => {handler.getTaxes(req,res, getConnection());});
 
+// expenses page endpoints
+app.get("/expenses", (req, res) => {handler.getExpenses(req,res, getConnection());});
+
+// expenses page endpoints
+app.get("/budgeting", (req, res) => {handler.getBudgeting(req,res, getConnection());});
+
+// todo: add pages and posts
+// todo: edit pages and posts
+// todo: edit pages template
 
 app.listen(port, function () {
     console.log(`app running at http://localhost:${port}`);
