@@ -28,7 +28,7 @@ body {
     background-position: center;
     background-repeat: none;
     background-size: cover;
-    background-image: url(background-image.jpg);   
+    background-image: url(/images/background-image.jpg);   
 }
 
 .login{

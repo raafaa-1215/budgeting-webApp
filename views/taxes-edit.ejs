@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Taxes</title>
+        <link rel="stylesheet" href="/css/edit-pages.css">
+        <script type="text/javascript" src="features.js"></script>
+    </head>
+    <body>
+        <%- include('navbar') %>
+        <div class="popup">
+            <div id="popupOverlayEdit" class="overlay-container"> 
+                <div class="popup-box"> 
+                    <h2> Edit Tax</h2> 
+                    <form class="form-container" method="post" id="editTaxForm"> 
+                        <input type="hidden" name="id" id="id" value="<%= taxData.id %>">
+                        <label class="form-label" for="name"><h3> Name: </h3></label> 
+                        <input class="form-input" type="text" id="name" name="name" value="<%= taxData.name %>" required> 
+                        <label class="form-label" for="description"><h3> Description: </h3></label> 
+                        <input class="form-input" type="text" id="description" name="description" value="<%= taxData.description %>" required>
+                        <label class="form-label" for="percentage"><h3> Percentage: </h3></label> 
+                        <input class="form-input" type="number" id="percentage" name="percentage" value="<%= taxData.percentage %>" required> 
+                        <label class="form-label" for="method"><h3>Method: </h3></label> 
+                        <select class="form-input" type="text" id="method" name="method" required>
+                            <option hidden>Insert Method</option>
+                            <option value="Flat">Flat</option>
+                            <option value="Stacking">Stacking</option>
+                        </select>
+                        <input class="btn-submit" type="submit" value="Submit"> 
+                    </form> 
+                </div> 
+            </div> 
+        </div>
+    </body>
+</html>

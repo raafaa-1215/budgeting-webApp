@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Expenses</title>
+        <link rel="stylesheet" href="/css/edit-pages.css">
+    </head>
+    <body>
+        <%- include('navbar') %>
+        <div class="popup">
+            <div id="popupOverlayEdit" class="overlay-container"> 
+                <div class="popup-box"> 
+                    <h2>Edit Expense</h2> 
+                    <form class="form-container" method="post" id="editExpenseForm"> 
+                        <input type="hidden" name="id" id="id" value="<%= expenseData.id %>">
+                        <label class="form-label" for="name"><h3> Name: </h3></label> 
+                        <input class="form-input" type="text" id="name" name="name" value="<%= expenseData.name %>" required> 
+                        <label class="form-label" for="description"><h3> Description: </h3></label> 
+                        <input class="form-input" type="text" id="description" name="description" value="<%= expenseData.description %>" required> 
+                        <label class="form-label" for="type"><h3> Type: </h3></label> 
+                        <select  class="form-input" type="text" id="type" name="type" required>
+                            <option hidden>Insert Type</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Operating expenses">Operating expenses</option>
+                            <option value="Leisure goods">Leisure goods</option>
+                        </select>
+                        <label class="form-label" for="paymentDay"><h3> Payment Day: </h3></label>
+                        <select class="form-input" type="text" id="paymentDay" name="paymentDay" required>
+                            <option hidden>Insert Payment Day</option>
+                            <option value="Last day of the month">Last day of the month</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Biweekly">Biweekly</option>
+                            <option value="Every Monday">Every Monday</option>
+                            <option value="Every Tuesday">Every Tuesday</option>
+                            <option value="Every Wednesday">Every Wednesday</option>
+                            <option value="Every Thursday">Every Thursday</option>
+                            <option value="Every Friday">Every Friday</option>
+                        </select>
+                        <label class="form-label" for="amount"> <h3>Amount: </h3></label> 
+                        <input class="form-input" type="text" id="amount" name="amount" value="<%= expenseData.amount %>" required>
+                        <input class="btn-submit" type="submit" value="Submit">
+                    </form>
+                </div> 
+            </div> 
+        </div>
+
+    </body>
+</html>

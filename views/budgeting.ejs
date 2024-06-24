@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Budgeting</title>
-        <link rel="stylesheet" href="budgeting.css">
+        <link rel="stylesheet" href="/css/budgeting.css">
         <script type="text/javascript" src="features.js"></script>
     </head>
     <body>
@@ -12,12 +12,12 @@
         <div class="body">
             <div class="top-row">
                 <h1>Budgeting</h1>
-                <a class="back-btn" href="/"><img src="back-icon.png" width="24px" height="24px">Back</a>
+                <a class="back-btn" href="/"><img src="/images/back-icon.png" width="24px" height="24px">Back</a>
             </div>
 
             <div class="budgeting-table-div" id="budgeting-table-div">
                 <div class="add-btn-div">
-                    <button  class="add-btn" onclick="togglePopUp(1)"><img src="add-icon.png" width="24px" height="24px">Add New Budget</button>
+                    <button  class="add-btn" onclick="togglePopUp()"><img src="/images/add-icon.png" width="24px" height="24px">Add New Budget</button>
                 </div>
                 <table class="budgeting-table">
                     <tr>
@@ -34,42 +34,46 @@
                             <tr>
                                 <td><%= budgetingData[i].incomeName %></td>
                                 <td><%= budgetingData[i].expenseName %></td>
-                                <td><%= budgetingData[i].amount %></td>
+                                <td><%= budgetingData[i].amountLeft %>€</td>
                                 <td><%= budgetingData[i].dateAdded %></td>
+                                <td>
+                                    <a id="remove" href="/delete/budget/<%= budgetingData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
+                                </td>
                             </tr>
-                            <td>
-                                <!-- todo: acabar ambos os botões -->
-                                <button class="btn-open-popup" id="edit" onclick="togglePopUp(2)"><img src="/edit-icon.png" width="24px" height="24px">Edit</button>
-                                <button id="remove"><img src="/delete-icon.png" width="24px" height="24px">Delete</button>
-                            </td>
-                        </tr>
                     <% } } %>
                 </table>
             </div>
         </div>
 
         <!-- Add New Button Popup-->
-        <!-- todo: acabar add -->
         <div class="popup">
             <div id="popupOverlayAdd" class="overlay-container"> 
                 <div class="popup-box"> 
                     <h2> Add Income String</h2> 
-                    <form class="form-container" method="post"> 
-                        <label class="form-label" for="name"><h3> Name: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Name" id="name" name="name" required> 
-                        <label class="form-label" for="description"><h3> Description: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Description" id="description" name="description" required> 
-                        <label class="form-label" for="source"><h3>Source: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Source" id="source" name="source" required>
-                        <label class="form-label" for="type"><h3>Type: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Type" id="type" name="type" required>
-                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Payday" id="payday" name="payday" required>
-                        <label class="form-label" for="amount"> <h3>Amount: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required>
-                        <button class="btn-submit" type="submit"> Submit </button> 
+                    <form class="form-container" method="post" id="addBudgetForm"> 
+                        <label class="form-label" for="liquidIncomeId"><h3>Liquid Income: </h3></label>
+                        <select class="form-input" type="number" id="liquidIncomeId" name="liquidIncomeId" required>
+                            <option hidden>Insert Liquid Income</option>
+                            <%  if (liquidIncomeSelect[0] == null) { %>
+                                <option disabled>No liquid income available</option>
+                            <% } else { 
+                                    for (let i=0; i < liquidIncomeSelect.length; i++) { %>
+                                        <option value="<%= liquidIncomeSelect[i].id %>"><%= liquidIncomeSelect[i].name %> - <%= liquidIncomeSelect[i].amount %>€</option>
+                            <% } } %>
+                        </select>
+                        <label class="form-label" for="expenseId"><h3>Expense: </h3></label>
+                        <select class="form-input" type="number" id="expenseId" name="expenseId" required>
+                            <option hidden>Insert Tax</option>
+                            <%  if (expenseSelect[0] == null) { %>
+                                <option disabled>No expenses available</option>
+                            <% } else { 
+                                    for (let i=0; i < expenseSelect.length; i++) { %>
+                                        <option value="<%= expenseSelect[i].id %>"><%= expenseSelect[i].name %> - <%= expenseSelect[i].amount %>€</option>
+                            <% } } %>
+                        </select>
+                        <input class="btn-submit" type="submit" value="Submit">
                     </form> 
-                    <button id="close" class="btn-close-popup" onclick="togglePopUp(1)"> Close </button> 
+                    <button id="close" class="btn-close-popup" onclick="togglePopUp()"> Close </button> 
                 </div> 
             </div>
         </div>

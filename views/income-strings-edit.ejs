@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Income Strings</title>
+        <link rel="stylesheet" href="/css/edit-pages.css">
+    </head>
+    <body>
+        <%- include('navbar') %>
+        <div class="popup">
+                <div class="popup-box"> 
+                    <h2>Edit Income String</h2> 
+                    <form class="form-container" method="post" id="editIncomeStringsForm"> 
+                        <input type="hidden" name="id" id="id" value="<%= incomeStringData.id %>">
+                        <label class="form-label" for="name"><h3> Name: </h3></label> 
+                        <input class="form-input" type="text" id="name" name="name" value="<%= incomeStringData.name %>" required> 
+                        <label class="form-label" for="description"><h3> Description: </h3></label> 
+                        <input class="form-input" type="text" id="description" name="description" value="<%= incomeStringData.description %>" required>
+                        <label class="form-label" for="type"><h3>Type: </h3></label>
+                        <select class="form-input" type="text" id="type" name="type" required>
+                            <option hidden>Insert Type</option>
+                            <option value="Active income">Active income</option>
+                            <option value="Passive income">Passive income</option>
+                            <option value="Dividend income">Dividend income</option>
+                            <option value="Pension income">Pension income</option>
+                            <option value="Portfolio income">Portfolio income</option>
+                            <option value="Earned income">Earned income</option>
+                        </select>
+                        <label class="form-label" for="source"><h3>Source: </h3></label> 
+                        <input class="form-input" type="text" id="source" name="source" value="<%= incomeStringData.name %>" required>
+                        <label class="form-label" for="amount"><h3>Amount: </h3></label>
+                        <input class="form-input" type="text" id="amount" name="amount" value="<%= incomeStringData.amount %>" required>
+                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
+                        <select class="form-input" type="text" id="payday" name="payday" required>
+                            <option hidden>Insert Payday</option>
+                            <option value="Last day of the month">Last day of the month</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Biweekly">Biweekly</option>
+                            <option value="On deploy">On deploy</option>
+                        </select>
+                        <input class="btn-submit" type="submit" value="Submit"> 
+                    </form> 
+                </div> 
+        </div>
+    </body>
+</html>

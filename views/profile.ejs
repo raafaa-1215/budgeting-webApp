@@ -4,36 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="profile.css">
-    <script type="text/javascript" src="features.js"></script>
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
     <%- include('navbar') %>
     <div class="body">
         <div class="top-row">
             <h1>Profile</h1>
-            <a class="back-btn" href="/"><img src="back-icon.png" width="24px" height="24px">Back</a>
+            <a class="back-btn" href="/"><img src="/images/back-icon.png" width="24px" height="24px">Back</a>
         </div>
         <div class="mid-row">
-            <form action="/edit-profile" method="post">
-                <div class="input">
-                    <label for="username-input"><h3>Username:</h3></label>
-                    <input type="text" id="username-input" name="username-input" value="<%= userData[0].username %>" disabled>
-                </div>
-                <div class="input">
-                    <label for="password-input"><h3>Password:</h3></label>
-                    <input type="password" id="password-input" name="password-input" value="<%= userData[0].password %>" disabled>
-                </div>
-                <div class="input">
-                    <h3>Joined In: <%= userData[0].joinDate %></h3>
-                </div>
-                <br>
-                <div class="btn-div">
-                    <input type="submit" value="Submit changes" id="submit-btn" disabled>
-                </div>
-            </form>
-            <button class="edit-btn" id="edit-btn" onclick="enableEditProfile()"><img src="edit-icon.png" width="24px" height="24px">Edit profile</button>
-            <button class="cancel-btn" id="cancel-btn" onclick="disableEditProfile()"><img src="edit-icon.png" width="24px" height="24px">Cancel</button>
+            <h3>Username: <%= userData[0].username %></h3>
+
+            <h3>Email: <%= userData[0].email %></h3>
+            <h3>Joined In: <%= userData[0].joinDate %></h3>
         </div>
     </div>
 </body>

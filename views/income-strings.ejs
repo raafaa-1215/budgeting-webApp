@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Income Strings</title>
-        <link rel="stylesheet" href="income-strings.css">
+        <link rel="stylesheet" href="/css/income-strings.css">
         <script type="text/javascript" src="features.js"></script>
     </head>
     <body>
@@ -12,12 +12,12 @@
         <div class="body">
             <div class="top-row">
                 <h1>Income Strings</h1>
-                <a class="back-btn" href="/"><img src="back-icon.png" width="24px" height="24px">Back</a>
+                <a class="back-btn" href="/"><img src="/images/back-icon.png" width="24px" height="24px">Back</a>
             </div>
 
             <div class="income-strings-table-div" id="income-strings-table-div">
                 <div class="add-btn-div">
-                    <button  class="add-btn" onclick="togglePopUp(1)"><img src="add-icon.png" width="24px" height="24px">Add New Income String</button>
+                    <button  class="add-btn" onclick="togglePopUp()"><img src="/images/add-icon.png" width="24px" height="24px">Add New Income String</button>
                 </div>
                 <table class="income-strings-table">
                     <tr>
@@ -45,9 +45,8 @@
                                 <td><%= incomeStringsData[i].dateAdded %></td>
                                 <td><%= incomeStringsData[i].lastEditDate %></td>
                                 <td>
-                                    <!-- todo: acabar ambos os botões -->
-                                    <button class="btn-open-popup" id="edit" onclick="togglePopUp(2)"><img src="/edit-icon.png" width="24px" height="24px">Edit</button>
-                                    <button id="remove"><img src="/delete-icon.png" width="24px" height="24px">Delete</button>
+                                    <a class="btn-open-popup" id="editIncomeString" href="/editPages/incomeString/<%= incomeStringsData[i].id %>"><img src="/images/edit-icon.png" width="24px" height="24px">Edit</a>
+                                    <a id="remove" href="/incomeString/<%= incomeStringsData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
                                 </td>
                             </tr>
                     <% } } %>
@@ -56,27 +55,40 @@
         </div>
 
         <!-- Add New Button Popup-->
-        <!-- todo: acabar add -->
         <div class="popup">
             <div id="popupOverlayAdd" class="overlay-container"> 
                 <div class="popup-box"> 
                     <h2> Add Income String</h2> 
-                    <form class="form-container" method="post"> 
+                    <form class="form-container" method="post" id="addIncomeStringsForm"> 
                         <label class="form-label" for="name"><h3> Name: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Name" id="name" name="name" required> 
                         <label class="form-label" for="description"><h3> Description: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Description" id="description" name="description" required> 
+                        <input class="form-input" type="text" placeholder="Insert Description" id="description" name="description" required>
+                        <label class="form-label" for="type"><h3>Type: </h3></label> 
+                        <select class="form-input" type="text" id="type" name="type" required>
+                            <option hidden>Insert Type</option>
+                            <option value="Active income">Active income</option>
+                            <option value="Passive income">Passive income</option>
+                            <option value="Dividend income">Dividend income</option>
+                            <option value="Pension income">Pension income</option>
+                            <option value="Portfolio income">Portfolio income</option>
+                            <option value="Earned income">Earned income</option>
+                        </select>
                         <label class="form-label" for="source"><h3>Source: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Source" id="source" name="source" required>
-                        <label class="form-label" for="type"><h3>Type: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Type" id="type" name="type" required>
-                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Payday" id="payday" name="payday" required>
-                        <label class="form-label" for="amount"> <h3>Amount: </h3></label> 
+                        <label class="form-label" for="amount"><h3>Amount: </h3></label> 
                         <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required>
-                        <button class="btn-submit" type="submit"> Submit </button> 
+                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
+                        <select class="form-input" type="text" id="payday" name="payday" required>
+                            <option hidden>Insert Payday</option>
+                            <option value="Last day of the month">Last day of the month</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Biweekly">Biweekly</option>
+                            <option value="On deploy">On deploy</option>
+                        </select>
+                        <input class="btn-submit" type="submit" value="Submit"> 
                     </form> 
-                    <button id="close" class="btn-close-popup" onclick="togglePopUp(1)"> Close </button> 
+                    <button id="close" class="btn-close-popup" onclick="togglePopUp()"> Close </button> 
                 </div> 
             </div> 
         </div>

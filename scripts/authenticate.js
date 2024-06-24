@@ -4,14 +4,14 @@ class User {
         this.password = password;
     }
 
-    constructor(username, email, password, joinDate) {
+    constructor(username, email, password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.joinDate = joinDate;
     }
 }
 
+// login form
 const loginForm = document.getElementById('loginForm');
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -36,6 +36,7 @@ loginForm.addEventListener('submit', (event) => {
     });
 });
 
+// signup form
 const signupForm = document.getElementById('signupForm');
 signupForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -43,14 +44,8 @@ signupForm.addEventListener('submit', (event) => {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    
-    const today = new Date();
-    let year = today.getFullYear();
-    let month = String(today.getMonth() + 1).padStart(2, '0');
-    let day = String(today.getDate()).padStart(2, '0');
-    const joinDate = `${year}-${month}-${day}`;
 
-    const user = new User(username, email, password, joinDate);
+    const user = new User(username, email, password);
 
     fetch('/signup', {
             method: 'POST',
@@ -63,6 +58,6 @@ signupForm.addEventListener('submit', (event) => {
     .then(data => {
     })
     .catch(error => {
-            console.error('Error:', error);
+        console.error('Error:', error);
     });
 });
