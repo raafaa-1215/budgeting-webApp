@@ -15,7 +15,19 @@
             <div id="liquid-income-table-div" class="liquid-income-table-div">
                 <h3>Liquid Income</h3>
                 <table id="liquid-income-table" class="liquid-income-table">
-                    
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount</th>
+                    </tr>
+                    <% if (liquidIncomeData[0] == null) { %>
+                        <td colspan="2"><h2>No data found!</h2></td>
+                    <% } else {
+                            for (let i=0; i < liquidIncomeData.length; i++) { %>
+                                <tr>
+                                    <td><%= liquidIncomeData[i].name %></td>
+                                    <td><%= liquidIncomeData[i].amount %>€</td>
+                                </tr>
+                     <% } } %>
                 </table>
             </div>
             <div id="income-ratio-chart-div" class="income-ratio-chart-div">
@@ -26,7 +38,22 @@
             <div id="budgeting-arrow-table-div" class="budgeting-arrow-table-div">
                 <h3>Budgeting</h3>
                 <table id="budgeting-arrow-table" class="budgeting-arrow-table">
-                    
+                    <tr>
+                        <th>Income</th>
+                        <th></th>
+                        <th></th>
+                        <th>Expense</th>
+                    </tr>
+                    <% if (budgetingData[0] == null) { %>
+                        <td colspan="4"><h2>No data found!</h2></td>
+                    <% } else {
+                            for (let i=0; i < budgetingData.length; i++) { %>
+                                <tr>
+                                    <td><%= budgetingData[i].incomeName %></td>
+                                    <td colspan="2"><img src="/images/arrow-icon.png" width="24px"></td>
+                                    <td><%= budgetingData[i].expenseName %></td>
+                                </tr>
+                     <% } } %>
                 </table>
             </div>
         </div>
@@ -44,6 +71,21 @@
             <div id="expenses-table-div" class="expenses-table-div">
                 <h3>Expenses</h3>
                 <table id="expenses-table" class="expenses-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                    </tr>
+                    <% if (expensesData[0] == null) { %>
+                        <td colspan="3"><h2>No data found!</h2></td>
+                    <% } else {
+                            for (let i=0; i < expensesData.length; i++) { %>
+                                <tr>
+                                    <td><%= expensesData[i].name %></td>
+                                    <td><%= expensesData[i].type %></td>
+                                    <td><%= expensesData[i].amount %>€</td>
+                                </tr>
+                     <% } } %>
                 </table>
             </div>
         </div>

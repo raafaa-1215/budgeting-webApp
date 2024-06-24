@@ -34,7 +34,14 @@ app.use(session({
 }));
 
 // index page endpoint
-app.get("/", (req, res) => {handler.getIndex(req, res);});
+app.get("/", (req, res) => {handler.getIndex(req, res, getConnection());});
+
+// charts endpoints
+const routerCharts = express.Router();
+routerCharts.get("/incomeStrings", (req, res) => {handler.getIncomeStringsChart(req, res, getConnection());});
+routerCharts.get("/taxes", (req, res) => {handler.getTaxesChart(req, res, getConnection());});
+routerCharts.get("/amountLeft", (req, res) => {handler.getAmountLeftChart(req, res, getConnection());});
+app.use('/chart', routerCharts);
 
 // login page endpoints
 const routerLogin = express.Router();
@@ -96,8 +103,11 @@ app.use('/editPages', routerEditPages);
 
 // delete pages endpoints
 const routerDelete = express.Router();
-routerDelete.get('/incomeString/:id', (req, res) => {handler.getEditIncomeString(req,res, getConnection());})
-
+routerDelete.get('/incomeString/:id', (req, res) => {handler.deleteIncomeString(req,res, getConnection());})
+routerDelete.get('/tax/:id', (req, res) => {handler.deleteTax(req,res, getConnection());})
+routerDelete.get('/liquidIncome/:id', (req, res) => {handler.deleteLiquidIncome(req,res, getConnection());})
+routerDelete.get('/expense/:id', (req, res) => {handler.deleteExpense(req,res, getConnection());})
+routerDelete.get('/budget/:id', (req, res) => {handler.deleteBudget(req,res, getConnection());})
 app.use('/delete', routerDelete);
 
 app.listen(port, function () {

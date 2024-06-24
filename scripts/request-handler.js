@@ -1,9 +1,85 @@
 // index page endpoint
-function getIndex(req, res) {
+function getIndex(req, res, connection) {
     if(req.session.loggedin) {
-        res.render('index');
+        let userId = req.session.userId;
+        var query = `SELECT income_strings.name, liquid_incomes.amount 
+        FROM liquid_incomes INNER JOIN income_strings ON liquid_incomes.incomeId = income_strings.id
+        WHERE liquid_incomes.userId = ${userId}
+        ORDER BY liquid_incomes.amount desc, income_strings.name
+        LIMIT 4`;
+        connection.query(query, function(err, rows) {
+            if(err) throw err;
+
+            var liquidIncomeData = rows;
+            query = `SELECT income_strings.name as incomeName, expenses.name as expenseName
+            FROM budgeting INNER JOIN expenses ON budgeting.expenseId = expenses.id
+            INNER JOIN liquid_incomes ON budgeting.liquidIncomeId = liquid_incomes.id
+            INNER JOIN income_strings ON liquid_incomes.incomeId = income_strings.id
+            WHERE budgeting.userId = ${userId}
+            ORDER BY incomeName, expenseName
+            LIMIT 4`;
+            connection.query(query, function(err, rows) {
+                if(err) throw err;
+
+                var budgetingData = rows;
+                query = `SELECT name, type, amount         
+                FROM expenses 
+                WHERE userId = ${userId}
+                ORDER BY amount, name
+                LIMIT 4`;
+                connection.query(query, function(err, rows) {
+                    if(err) throw err;
+
+                    var expensesData = rows; 
+                    res.render('index', { liquidIncomeData, budgetingData, expensesData });
+                });   
+            }); 
+        });
+        
     } else {
         res.redirect('/login');
+    }
+}
+
+// charts endpoints
+function getIncomeStringsChart(req, res, connection) {
+    if(!req.session.loggedin) {
+        res.redirect('/login');
+    } else {
+        let userId = req.session.userId;
+        let query = `SELECT name, amount FROM income_strings WHERE userId = ${userId}`;
+        connection.query(query, function(err, rows) {
+            if(err) throw err;
+
+            res.send(rows)
+        });
+    }
+}
+function getTaxesChart(req, res, connection) {
+    if(!req.session.loggedin) {
+        res.redirect('/login');
+    } else {
+        let userId = req.session.userId;
+        let query = `SELECT name, percentage FROM taxes WHERE userId = ${userId}`;
+        connection.query(query, function(err, rows) {
+            if(err) throw err;
+
+            res.send(rows)
+        });
+    }
+}
+function getAmountLeftChart(req, res, connection) {
+    if(!req.session.loggedin) {
+        res.redirect('/login');
+    } else {
+        let userId = req.session.userId;
+        var query = `SELECT (SELECT SUM(liquid_incomes.amount) FROM liquid_incomes WHERE liquid_incomes.userId = ${userId}) - 
+        (SELECT SUM(expenses.amount) FROM expenses WHERE expenses.userId = ${userId}) as amount `;
+        connection.query(query, function(err, rows) {
+            if(err) throw err;
+
+            res.send(rows)
+        });
     }
 }
 
@@ -425,12 +501,79 @@ function editExpense(req, res, connection) {
 }
 
 // delete pages endpoints
-function deleteIncomeString()
+function deleteIncomeString(req, res, connection) {
+    if(!req.session.loggedin) {
+        res.redirect('/login');
+    } else {
+        let {id} = req.params;
+        let query = `DELETE FROM income_strings WHERE id = ?`;
+        connection.query(query, [id], function(err, rows) {
+            if(err) throw err;
 
+            res.redirect('/incomeStrings');
+        });
+    }
+}
+function deleteTax(req, res, connection) {
+    if(!req.session.loggedin) {
+        res.redirect('/login');
+    } else {
+        let {id} = req.params;
+        let query = `DELETE FROM taxes WHERE id = ?`;
+        connection.query(query, [id], function(err, rows) {
+            if(err) throw err;
+
+            res.redirect('/taxes');
+        });
+    }
+}
+function deleteLiquidIncome(req, res, connection) {
+    if(!req.session.loggedin) {
+        res.redirect('/login');
+    } else {
+        let {id} = req.params;
+        let query = `DELETE FROM liquid_incomes WHERE id = ?`;
+        connection.query(query, [id], function(err, rows) {
+            if(err) throw err;
+
+            res.redirect('/liquidIncomes');
+        });
+    }
+}
+function deleteExpense(req, res, connection) {
+    if(!req.session.loggedin) {
+        res.redirect('/login');
+    } else {
+        let {id} = req.params;
+        let query = `DELETE FROM expenses WHERE id = ?`;
+        connection.query(query, [id], function(err, rows) {
+            if(err) throw err;
+
+            res.redirect('/expenses');
+        });
+    }
+}
+function deleteBudget(req, res, connection) {
+    if(!req.session.loggedin) {
+        res.redirect('/login');
+    } else {
+        let {id} = req.params;
+        let query = `DELETE FROM budgeting WHERE id = ?`;
+        connection.query(query, [id], function(err, rows) {
+            if(err) throw err;
+
+            res.redirect('/budgeting');
+        });
+    }
+}
 
 
 // index page endpoint export
 module.exports.getIndex = getIndex;
+// charts endpoints
+module.exports.getIncomeStringsChart = getIncomeStringsChart;
+module.exports.getTaxesChart = getTaxesChart;
+module.exports.getAmountLeftChart = getAmountLeftChart;
 // login page endpoints export
 module.exports.getLoginForm = getLoginForm;
 module.exports.authenticateUserLogin = authenticateUserLogin;
@@ -464,6 +607,11 @@ module.exports.editTax = editTax;
 module.exports.getEditExpense = getEditExpense;
 module.exports.editExpense = editExpense;
 // delete pages endpoints export
+module.exports.deleteIncomeString = deleteIncomeString;
+module.exports.deleteTax = deleteTax;
+module.exports.deleteLiquidIncome = deleteLiquidIncome;
+module.exports.deleteExpense = deleteExpense;
+module.exports.deleteBudget = deleteBudget;
 
 function getCurrentDate() {
     const date = new Date();
