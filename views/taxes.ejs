@@ -19,34 +19,36 @@
                 <div class="add-btn-div">
                     <button class="add-btn" onclick="togglePopUp()"><img src="/images/add-icon.png" width="24px" height="24px">Add New Tax</button>
                 </div>
-                <table class="taxes-table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Percentage</th>
-                        <th>Method</th>
-                        <th>Added</th>
-                        <th>Last Edited</th>
-                        <th>Actions</th>
-                    </tr>
-                    <%if (taxesData[0] == null) { %>
-                        <td colspan="9"><h2>No data found!</h2></td>
-                    <% } else {
-                        for (let i = 0; i < taxesData.length; i++) { %>
-                            <tr>
-                                <td><%= taxesData[i].name %></td>
-                                <td><%= taxesData[i].description %></td>
-                                <td><%= taxesData[i].percentage %>%</td>
-                                <td><%= taxesData[i].method %></td>
-                                <td><%= taxesData[i].dateAdded %></td>
-                                <td><%= taxesData[i].lastEditDate %></td>
-                                <td>
-                                    <a class="btn-open-popup" id="edit" href="/editPages/tax/<%= taxesData[i].id %>"><img src="/images/edit-icon.png" width="24px" height="24px">Edit</a>
-                                    <a id="remove" href="/delete/tax/<%= taxesData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
-                                </td>
-                            </tr>
-                    <% } } %>
-                </table>
+                <div style="overflow-x: auto;" class="taxes-table-responsivity">
+                    <table class="taxes-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Percentage</th>
+                            <th>Method</th>
+                            <th>Added</th>
+                            <th>Last Edited</th>
+                            <th>Actions</th>
+                        </tr>
+                        <%if (taxesData[0] == null) { %>
+                            <td colspan="9"><h2>No data found!</h2></td>
+                        <% } else {
+                            for (let i = 0; i < taxesData.length; i++) { %>
+                                <tr>
+                                    <td><%= taxesData[i].name %></td>
+                                    <td><%= taxesData[i].description %></td>
+                                    <td><%= taxesData[i].percentage %>%</td>
+                                    <td><%= taxesData[i].method %></td>
+                                    <td><%= taxesData[i].dateAdded %></td>
+                                    <td><%= taxesData[i].lastEditDate %></td>
+                                    <td>
+                                        <a class="btn-open-popup" id="edit" href="/editPages/tax/<%= taxesData[i].id %>"><img src="/images/edit-icon.png" width="24px" height="24px">Edit</a>
+                                        <a id="remove" href="/delete/tax/<%= taxesData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
+                                    </td>
+                                </tr>
+                        <% } } %>
+                    </table>
+                </div>
             </div>
         </div>
 

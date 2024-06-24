@@ -38,7 +38,6 @@
 }
 
 .back-btn {
-    width: 10%;
     padding: 5px 10px;
     border-radius: 2px;
     border: 1px solid var(--blue);
@@ -96,6 +95,8 @@
     
 }
 
+
+/* Budgeting table panel */
 .budgeting-table-div {
     width: 100%;
     display: flex;
@@ -104,6 +105,11 @@
     align-items: center;
     background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.budgeting-table-responsivity {
+    width: 100%;
+    overflow-x: auto;
 }
 
 .budgeting-table {
@@ -287,3 +293,58 @@
     display: flex; 
     opacity: 1; 
 } 
+
+/* Responsive Table */
+@media screen and (max-width: 1200px) {
+    .budgeting-table-div {
+        padding: 20px 10px;
+    }
+
+    .budgeting-table-responsivity {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .budgeting-table th, .budgeting-table td {
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+
+    .back-btn, .add-btn, .edit, .remove {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .form-container {
+        padding: 0;
+    }
+
+    .popup-box {
+        width: 90%;
+    }
+}
+
+/* Delete Button */
+#remove {
+    width: 100px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--red);
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+    text-decoration: none;
+}
+
+#remove img {
+    margin-right: 5px;
+}
+
+/* Hover Effects */
+#remove:hover {
+    transform: scale(1.1);
+}

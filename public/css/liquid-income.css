@@ -38,8 +38,7 @@
 }
 
 .back-btn {
-    width: 10%;
-    padding: 5px 10px;
+    padding: 10px 10px;
     border-radius: 2px;
     border: 1px solid var(--blue);
     background-color: var(--blue);
@@ -89,6 +88,14 @@
     cursor: pointer;
 }
 
+.back {
+    display: flex;
+    padding-bottom: 40px;
+    justify-content: right;
+    text-decoration: none;
+}
+
+/* Liquid Income table panel */
 .liquid-income-table-div {
     width: 100%;
     display: flex;
@@ -99,12 +106,18 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
+.income-strings-table-responsivity {
+    width: 100%;
+    overflow-x: auto;
+}
+
 .liquid-income-table {
     width: 100%;
     padding: 0;
     margin:0;
     height: fit-content;
     border-collapse: collapse;
+    border-spacing: 0;
 }
 
 .liquid-income-table td, .liquid-income-table th {
@@ -280,3 +293,58 @@
     display: flex; 
     opacity: 1; 
 } 
+
+/* Delete Button */
+#remove {
+    width: 100px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--red);
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+    text-decoration: none;
+}
+
+#remove img {
+    margin-right: 5px;
+}
+
+/* Hover Effects */
+#remove:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Table */
+@media screen and (max-width: 1200px) {
+    .liquid-income-table-div {
+        padding: 20px 10px;
+    }
+
+    .liquid-income-table-responsivity {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .liquid-income-table-div th, .liquid-income-table td {
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+
+    .back-btn, .add-btn, .edit, .remove {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .form-container {
+        padding: 0;
+    }
+
+    .popup-box {
+        width: 90%;
+    }
+}

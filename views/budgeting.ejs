@@ -19,29 +19,31 @@
                 <div class="add-btn-div">
                     <button  class="add-btn" onclick="togglePopUp()"><img src="/images/add-icon.png" width="24px" height="24px">Add New Budget</button>
                 </div>
-                <table class="budgeting-table">
-                    <tr>
-                        <th>Income</th>
-                        <th>Expense</th>
-                        <th>Amount</th>
-                        <th>Added</th>
-                        <th>Actions</th>
-                    </tr>
-                    <%if (budgetingData[0] == null) { %>
-                        <td colspan="9"><h2>No data found!</h2></td>
-                    <% } else {
-                        for (let i = 0; i < budgetingData.length; i++) { %>
-                            <tr>
-                                <td><%= budgetingData[i].incomeName %></td>
-                                <td><%= budgetingData[i].expenseName %></td>
-                                <td><%= budgetingData[i].amountLeft %>€</td>
-                                <td><%= budgetingData[i].dateAdded %></td>
-                                <td>
-                                    <a id="remove" href="/delete/budget/<%= budgetingData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
-                                </td>
-                            </tr>
-                    <% } } %>
-                </table>
+                <div style="overflow-x: auto;" class="budgeting-table-responsivity">
+                    <table class="budgeting-table">
+                        <tr>
+                            <th>Income</th>
+                            <th>Expense</th>
+                            <th>Amount</th>
+                            <th>Added</th>
+                            <th>Actions</th>
+                        </tr>
+                        <%if (budgetingData[0] == null) { %>
+                            <td colspan="9"><h2>No data found!</h2></td>
+                        <% } else {
+                            for (let i = 0; i < budgetingData.length; i++) { %>
+                                <tr>
+                                    <td><%= budgetingData[i].incomeName %></td>
+                                    <td><%= budgetingData[i].expenseName %></td>
+                                    <td><%= budgetingData[i].amountLeft %>€</td>
+                                    <td><%= budgetingData[i].dateAdded %></td>
+                                    <td>
+                                        <a id="remove" href="/delete/budget/<%= budgetingData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
+                                    </td>
+                                </tr>
+                        <% } } %>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -77,31 +79,5 @@
                 </div> 
             </div>
         </div>
-
-        <!-- Edit Button Popup -->
-        <!-- todo: acabar edit -->
-        <div class="popup">
-            <div id="popupOverlayEdit" class="overlay-container"> 
-                <div class="popup-box"> 
-                    <h2> Edit Budgeting</h2> 
-                    <form class="form-container" method="put">
-                        <input type="hidden" name="id" value="">
-                        <label class="form-label" for="name"><h3> Source: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Source" id="source" name="source" required> 
-                        <label class="form-label" for="description"><h3> Destination: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Destination" id="destination" name="destination" required> 
-                        <label class="form-label" for="source"><h3>Amount: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Source" id="amount" name="amount" required>
-                        <label class="form-label" for="type"><h3>Next Payment In: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Type" id="type" name="type" required>
-                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Payday" id="payday" name="payday" required>
-                        <button class="btn-submit" type="submit"> Submit </button>  
-                    </form>
-                    <button id="close" class="btn-close-popup" onclick="togglePopUp(1)"> Close </button> 
-                </div> 
-            </div> 
-        </div>
-
     </body>
 </html>

@@ -4,7 +4,6 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mysql = require('mysql');
-const methodOverride = require('method-override');
 // script imports
 const handler = require('./scripts/request-handler.js');
 
@@ -22,10 +21,8 @@ function getConnection() {
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
-app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'images')));
 app.use(express.static(path.join(__dirname, 'scripts')));
 app.use(session({
 	secret: 'secret',

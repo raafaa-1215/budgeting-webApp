@@ -19,38 +19,40 @@
                 <div class="add-btn-div">
                     <button  class="add-btn" onclick="togglePopUp()"><img src="/images/add-icon.png" width="24px" height="24px">Add New Income String</button>
                 </div>
-                <table class="income-strings-table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Source</th>
-                        <th>Amount</th>
-                        <th>Payday</th>
-                        <th>Added</th>
-                        <th>Last Edited</th>
-                        <th>Actions</th>
-                    </tr>
-                    <% if (incomeStringsData[0] == null) { %>
-                       <td colspan="9"><h2>No data found!</h2></td>
-                    <% } else {
-                        for (let i=0; i < incomeStringsData.length; i++) { %>
-                            <tr>
-                                <td><%= incomeStringsData[i].name %></td>
-                                <td><%= incomeStringsData[i].description %></td>
-                                <td><%= incomeStringsData[i].type %></td>
-                                <td><%= incomeStringsData[i].source %></td>
-                                <td><%= incomeStringsData[i].amount %>€</td>
-                                <td><%= incomeStringsData[i].payday %></td>
-                                <td><%= incomeStringsData[i].dateAdded %></td>
-                                <td><%= incomeStringsData[i].lastEditDate %></td>
-                                <td>
-                                    <a class="btn-open-popup" id="editIncomeString" href="/editPages/incomeString/<%= incomeStringsData[i].id %>"><img src="/images/edit-icon.png" width="24px" height="24px">Edit</a>
-                                    <a id="remove" href="/delete/incomeString/<%= incomeStringsData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
-                                </td>
-                            </tr>
-                    <% } } %>
-                </table>
+                <div style="overflow-x: auto;" class="income-strings-table-responsivity">
+                    <table class="income-strings-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Source</th>
+                            <th>Amount</th>
+                            <th>Payday</th>
+                            <th>Added</th>
+                            <th>Last Edited</th>
+                            <th>Actions</th>
+                        </tr>
+                        <% if (incomeStringsData[0] == null) { %>
+                        <td colspan="9"><h2>No data found!</h2></td>
+                        <% } else {
+                            for (let i=0; i < incomeStringsData.length; i++) { %>
+                                <tr>
+                                    <td><%= incomeStringsData[i].name %></td>
+                                    <td><%= incomeStringsData[i].description %></td>
+                                    <td><%= incomeStringsData[i].type %></td>
+                                    <td><%= incomeStringsData[i].source %></td>
+                                    <td><%= incomeStringsData[i].amount %>€</td>
+                                    <td><%= incomeStringsData[i].payday %></td>
+                                    <td><%= incomeStringsData[i].dateAdded %></td>
+                                    <td><%= incomeStringsData[i].lastEditDate %></td>
+                                    <td>
+                                        <a class="btn-open-popup" id="editIncomeString" href="/editPages/incomeString/<%= incomeStringsData[i].id %>"><img src="/images/edit-icon.png" width="24px" height="24px">Edit</a>
+                                        <a class="remove" id="remove" href="/delete/incomeString/<%= incomeStringsData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
+                                    </td>
+                                </tr>
+                        <% } } %>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -89,33 +91,6 @@
                         <input class="btn-submit" type="submit" value="Submit"> 
                     </form> 
                     <button id="close" class="btn-close-popup" onclick="togglePopUp()"> Close </button> 
-                </div> 
-            </div> 
-        </div>
-
-        <!-- Edit Button Popup -->
-        <!-- todo: acabar edit -->
-        <div class="popup">
-            <div id="popupOverlayEdit" class="overlay-container"> 
-                <div class="popup-box"> 
-                    <h2> Edit Income String</h2> 
-                    <form class="form-container" method="put">
-                        <input type="hidden" name="id" value="">
-                        <label class="form-label" for="name"><h3> Name: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Name" id="name" name="name" required> 
-                        <label class="form-label" for="description"><h3> Description: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Description" id="description" name="description" required> 
-                        <label class="form-label" for="source"><h3>Source: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Source" id="source" name="source" required>
-                        <label class="form-label" for="type"><h3>Type: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Type" id="type" name="type" required>
-                        <label class="form-label" for="payday"><h3>Payday: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Payday" id="payday" name="payday" required>
-                        <label class="form-label" for="amount"> <h3>Amount: </h3></label> 
-                        <input class="form-input" type="text" placeholder="Insert Amount" id="amount" name="amount" required>
-                        <button class="btn-submit" type="submit"> Submit </button>  
-                    </form>
-                    <button id="close" class="btn-close-popup" onclick="togglePopUp(2)"> Close </button> 
                 </div> 
             </div> 
         </div>

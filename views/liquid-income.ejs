@@ -19,31 +19,33 @@
                 <div class="add-btn-div">
                     <button  class="add-btn" onclick="togglePopUp()"><img src="/images/add-icon.png" width="24px" height="24px">Add New Liquid Income</button>
                 </div>
-                <table class="liquid-income-table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Tax Aplied</th>
-                        <th>Amount</th>
-                        <th>Added</th>
-                        <th>Last Edited</th>
-                        <th>Actions</th>
-                    </tr>
-                    <% if (liquidIncomeData[0] == null) { %>
-                        <td colspan="9"><h2>No data found!</h2></td>
-                    <% } else {
-                            for (let i=0; i < liquidIncomeData.length; i++) { %>
-                                <tr>
-                                    <td><%= liquidIncomeData[i].name %></td>
-                                    <td><%= liquidIncomeData[i].percentage %>%</td>
-                                    <td><%= liquidIncomeData[i].amount %>€</td>
-                                    <td><%= liquidIncomeData[i].dateAdded %></td>
-                                    <td><%= liquidIncomeData[i].lastEditDate %></td>
-                                    <td>
-                                        <a id="remove" href="/delete/liquidIncome/<%= liquidIncomeData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
-                                    </td>
-                                </tr>
-                     <% } } %>      
-                </table>
+                <div style="overflow-x: auto;" class="income-strings-table-responsivity">
+                    <table class="liquid-income-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Tax Aplied</th>
+                            <th>Amount</th>
+                            <th>Added</th>
+                            <th>Last Edited</th>
+                            <th>Actions</th>
+                        </tr>
+                        <% if (liquidIncomeData[0] == null) { %>
+                            <td colspan="9"><h2>No data found!</h2></td>
+                        <% } else {
+                                for (let i=0; i < liquidIncomeData.length; i++) { %>
+                                    <tr>
+                                        <td><%= liquidIncomeData[i].name %></td>
+                                        <td><%= liquidIncomeData[i].percentage %>%</td>
+                                        <td><%= liquidIncomeData[i].amount %>€</td>
+                                        <td><%= liquidIncomeData[i].dateAdded %></td>
+                                        <td><%= liquidIncomeData[i].lastEditDate %></td>
+                                        <td>
+                                            <a id="remove" href="/delete/liquidIncome/<%= liquidIncomeData[i].id %>"><img src="/images/delete-icon.png" width="24px" height="24px">Delete</a>
+                                        </td>
+                                    </tr>
+                        <% } } %>      
+                    </table>
+                </div>
             </div>
         </div>
 

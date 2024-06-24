@@ -96,7 +96,7 @@
     width: 100%;
 }
 
-/* Bugjeting table panel */
+/* Budgeting table panel */
 .budgeting-arrow-table-div {
     width: 24%;
 }
@@ -180,4 +180,15 @@
 .expenses-table th {
     color: white;
     background-color: var(--red);
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 1250px) {
+    .row {
+        flex-direction: column;
+    }
+    .row > * {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }

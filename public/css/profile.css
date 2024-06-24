@@ -40,7 +40,6 @@
 }
 
 .back-btn {
-    width: 10%;
     padding: 5px 10px;
     border-radius: 2px;
     border: 1px solid var(--blue);
@@ -74,93 +73,4 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.mid-row form {
-    width: 80%;
-    min-height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.input {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.input label {
-    width: 30%;
-}
-
-.input input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid var(--darkgrey);
-    border-radius: 2px;
-}
-
-.btn-div {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.btn-div input {
-    width: fit-content;
-    padding: 10px 20px;
-    border-radius: 2px;
-    border: 1px solid var(--green);
-    background-color: var(--green);
-    color: white;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition-duration: .2s;
-}
-
-.btn-div input:disabled {
-    border: 1px solid var(--darkgrey);
-    background-color: var(--lighgrey);
-    color: black;
-    cursor: not-allowed !important;
-}
-
-.btn-div input:hover {
-    cursor: pointer;
-    transform: scale(1.20);
-}
-
-.edit-btn, .cancel-btn {
-    width: fit-content;
-    padding: 10px 20px;
-    border-radius: 2px;
-    color: white;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition-duration: .2s;
-}
-
-.edit-btn {
-    border: 1px solid var(--yellow);
-    background-color: var(--yellow);
-}
-
-.cancel-btn {
-    display: none;
-    border: 1px solid var(--red);
-    background-color: var(--red);
-}
-
-.edit-btn img, .cancel-btn img {
-    margin-right: 15px;
-}
-
-.edit-btn:hover, .cancel-btn:hover {
-    cursor: pointer;
-    transform: scale(1.20);
 }
